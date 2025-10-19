@@ -112,7 +112,7 @@ export const AdminUploadPanel = ({ onProductAdded }: AdminUploadPanelProps) => {
         </div>
         <div>
           <h2 className="text-2xl font-bold">Upload New Product</h2>
-          <p className="text-muted-foreground">Add products with AI image enhancement</p>
+          <p className="text-muted-foreground">Add products to your catalogue</p>
         </div>
       </div>
 
@@ -131,14 +131,14 @@ export const AdminUploadPanel = ({ onProductAdded }: AdminUploadPanelProps) => {
             </div>
 
             <div>
-              <Label htmlFor="price">Price ($)</Label>
+              <Label htmlFor="price">Price (KSH)</Label>
               <Input
                 id="price"
                 type="number"
-                step="0.01"
+                step="1"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                placeholder="99.99"
+                placeholder="2999"
                 required
               />
             </div>

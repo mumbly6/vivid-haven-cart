@@ -5,22 +5,16 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const promos = [
   {
-    title: "Summer Collection 2024",
-    description: "Get up to 50% off on selected items",
-    cta: "Shop Summer",
-    gradient: "from-accent to-accent/80"
-  },
-  {
     title: "New Arrivals",
     description: "Check out our latest fashion trends",
     cta: "Explore New",
-    gradient: "from-primary to-primary/80"
+    gradient: "from-primary to-secondary"
   },
   {
-    title: "Free Shipping",
-    description: "On all orders above $50",
+    title: "Free Delivery Within KU",
+    description: "On all orders above KSH 1,000",
     cta: "Start Shopping",
-    gradient: "from-purple-600 to-pink-600"
+    gradient: "from-accent to-primary"
   }
 ];
 

@@ -16,7 +16,7 @@ export const WhatsAppCheckout = ({ product, isOpen, onClose }: WhatsAppCheckoutP
   if (!product) return null;
 
   const createWhatsAppLink = (agentNumber: string) => {
-    const message = `Hi, I want to order ${product.name} priced $${product.price.toFixed(2)} at Haven Style.`;
+    const message = `Hi, I want to order ${product.name} priced KSH ${product.price.toFixed(0)} at Haven Style.`;
     return `https://wa.me/${agentNumber}?text=${encodeURIComponent(message)}`;
   };
 
@@ -42,7 +42,7 @@ export const WhatsAppCheckout = ({ product, isOpen, onClose }: WhatsAppCheckoutP
                 <h4 className="font-semibold">{product.name}</h4>
                 <p className="text-sm text-muted-foreground">{product.category}</p>
                 <p className="text-lg font-bold text-primary mt-1">
-                  ${product.price.toFixed(2)}
+                  KSH {product.price.toFixed(0)}
                 </p>
               </div>
             </div>

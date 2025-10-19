@@ -9,8 +9,54 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onShopNow }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/80">
+    <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
       <ParticlesBackground />
+      
+      {/* Floating Product Silhouettes */}
+      <motion.div
+        className="absolute top-20 left-10 w-32 h-32 opacity-10"
+        animate={{
+          y: [0, -30, 0],
+          rotate: [0, 10, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-primary-foreground blur-xl" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute bottom-20 right-16 w-40 h-40 opacity-10"
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, -15, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-accent-foreground blur-2xl" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute top-1/3 right-1/4 w-24 h-24 opacity-10"
+        animate={{
+          y: [0, -20, 0],
+          x: [0, 20, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-secondary-foreground blur-xl" />
+      </motion.div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
@@ -51,7 +97,7 @@ export const HeroSection = ({ onShopNow }: HeroSectionProps) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl mb-8 text-primary-foreground/90"
           >
-            Premium fashion at your fingertips. Shop exclusive collections with AI-enhanced quality.
+            Premium fashion at your fingertips. Shop exclusive collections that define your style.
           </motion.p>
 
           <motion.div
@@ -64,10 +110,23 @@ export const HeroSection = ({ onShopNow }: HeroSectionProps) => {
               onClick={onShopNow}
               variant="accent"
               size="lg"
-              className="text-lg"
+              className="text-lg group relative overflow-hidden"
             >
-              <ShoppingBag className="mr-2 h-5 w-5" />
-              Shop Now
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-accent-glow to-accent"
+                animate={{
+                  x: ['-100%', '100%'],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+              <span className="relative z-10 flex items-center">
+                <ShoppingBag className="mr-2 h-5 w-5" />
+                Shop Now
+              </span>
             </Button>
             <Button
               variant="outline"

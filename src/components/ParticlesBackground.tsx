@@ -19,19 +19,19 @@ export const ParticlesBackground = () => {
         },
         particles: {
           color: {
-            value: "#a855f7",
+            value: ["#c084fc", "#f472b6", "#fb7185"],
           },
           move: {
-            speed: 0.5,
+            speed: 1,
           },
           opacity: {
-            value: 0.3,
+            value: 0.5,
           },
           size: {
-            value: 2,
+            value: 3,
           },
           number: {
-            value: 50,
+            value: 80,
           },
         },
       }}

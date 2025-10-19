@@ -12,20 +12,25 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, onViewImage, onOrderNow }: ProductCardProps) => {
   return (
-    <motion.div
+      <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -8 }}
-      className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-2xl"
+      whileHover={{ y: -12, scale: 1.02 }}
+      className="group relative bg-gradient-to-b from-card to-card/80 rounded-2xl overflow-hidden border border-border hover:border-primary transition-all duration-500 shadow-lg hover:shadow-[0_0_40px_rgba(var(--primary),0.4)]"
     >
-      <div className="relative overflow-hidden aspect-square">
+      <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-muted to-muted/50">
         <motion.img
           src={product.image}
           alt={product.name}
+          loading="lazy"
           className="w-full h-full object-cover cursor-pointer"
           onClick={() => onViewImage(product.image)}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.15, filter: "brightness(1.1)" }}
+          transition={{ duration: 0.5 }}
+        />
+        
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         />
         
         {product.isNew && (
@@ -40,13 +45,20 @@ export const ProductCard = ({ product, onViewImage, onOrderNow }: ProductCardPro
           </Badge>
         )}
 
-        <motion.button
-          onClick={() => onViewImage(product.image)}
-          className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-          whileHover={{ scale: 1.05 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          className="absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
         >
-          <Eye className="w-8 h-8 text-primary-foreground" />
-        </motion.button>
+          <motion.div
+            initial={{ scale: 0.8 }}
+            whileHover={{ scale: 1 }}
+            className="bg-card/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-2xl border border-primary"
+          >
+            <Eye className="w-6 h-6 text-primary mb-2 mx-auto" />
+            <p className="text-sm font-semibold text-foreground">View Details</p>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="p-5 space-y-3">
@@ -70,15 +82,15 @@ export const ProductCard = ({ product, onViewImage, onOrderNow }: ProductCardPro
             {product.isSale && product.salePrice ? (
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-bold text-primary">
-                  ${product.salePrice.toFixed(2)}
+                  KSH {product.salePrice.toFixed(0)}
                 </span>
                 <span className="text-sm text-muted-foreground line-through">
-                  ${product.price.toFixed(2)}
+                  KSH {product.price.toFixed(0)}
                 </span>
               </div>
             ) : (
               <span className="text-2xl font-bold text-primary">
-                ${product.price.toFixed(2)}
+                KSH {product.price.toFixed(0)}
               </span>
             )}
           </div>
