@@ -8,7 +8,6 @@ import { ProductCard } from '@/components/ProductCard';
 import { LightboxModal } from '@/components/LightboxModal';
 import { WhatsAppCheckout } from '@/components/WhatsAppCheckout';
 import { Footer } from '@/components/Footer';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { AnimatedDivider } from '@/components/AnimatedDivider';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
@@ -97,10 +96,6 @@ const Index = () => {
         </motion.div>
       )}
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
-
-      <AnimatedDivider />
 
       {/* Catalogue Section */}
       <div ref={catalogueRef} className="container mx-auto px-4 py-12 scroll-mt-20">
